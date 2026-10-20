@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Carlos Pabillore, web and app developer in Cagayan de Oro. Member platforms, payroll, loyalty and POS for MugTuon Learning Hub & Cafe, plus Shopify theme work.">
+<meta property="og:title" content="Carlos Pabillore">
+<meta property="og:description" content="Web and app developer in Cagayan de Oro. I build the software that runs a real business.">
+<meta property="og:image" content="img/carlos.jpg">
+<meta name="theme-color" content="#051f20">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%238eb69b'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='monospace' font-weight='700' font-size='28' fill='%23051f20'%3ECP%3C/text%3E%3C/svg%3E">
+<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Carlos Pabillore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout concept: a build ledger. Each project is an entry with the real figures from its own docs
+   (tests, tables, screens), set on deep forest green with mint type; the one bold move is the
+   oversized hero name and the figure plates. */
+:root{
+  --bg:#051f20;
+  --surface:#0b2b26;
+  --line:#163832;
+  --raised:#235347;
+  --accent:#8eb69b;
+  --fg:#daf1de;
+  --muted:#9fc3a8;
+  --ink-on-accent:#051f20;
+  --shadow:0 30px 60px -30px rgba(0,0,0,.6);
+  --display:"Bricolage Grotesque","Arial Narrow",Impact,sans-serif;
+  --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#daf1de; --surface:#e8f6ea; --line:#b9dcc0; --raised:#8eb69b; --accent:#235347;
+    --fg:#051f20; --muted:#2f5a4a; --ink-on-accent:#daf1de; --shadow:0 30px 60px -30px rgba(5,31,32,.35);
+    color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#daf1de; --surface:#e8f6ea; --line:#b9dcc0; --raised:#8eb69b; --accent:#235347;
+  --fg:#051f20; --muted:#2f5a4a; --ink-on-accent:#daf1de; --shadow:0 30px 60px -30px rgba(5,31,32,.35);
+  color-scheme:light;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);
+  font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);line-height:1;margin:0;text-wrap:balance;font-weight:800}
+p{margin:0}
+img{max-width:100%}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{
+  max-width:1180px;margin-inline:auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.lede{font-size:clamp(18px,2vw,21px);max-width:60ch;color:var(--muted)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.mark{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:800;letter-spacing:-.02em;font-size:20px}
+.mark b{display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--accent);color:var(--ink-on-accent);font-family:var(--mono);font-size:13px;font-weight:600}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.nav li a{text-decoration:none;font-size:14px;font-weight:500;padding:8px 12px;border-radius:999px;color:var(--muted)}
+.nav li a:hover{background:var(--surface);color:var(--fg)}
+.nav li a.cta{background:var(--accent);color:var(--ink-on-accent);font-weight:600}
+@media (max-width:640px){.nav li:not(:last-child){display:none}}
+
+/* hero */
+.hero{padding-block:clamp(56px,10vw,120px) clamp(40px,6vw,72px);position:relative;overflow:hidden}
+.hero .wrap{display:grid;gap:28px}
+.hero h1{
+  font-size:clamp(48px,8.5vw,112px);letter-spacing:-.02em;line-height:.98;font-weight:800;
+}
+.hero h1 span{display:block}
+.hero h1 .thin{font-weight:500;color:var(--accent);font-size:.36em;letter-spacing:0;line-height:1.2;margin-top:.5em;max-width:18ch}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(28px,5vw,64px);align-items:center}
+@media (max-width:800px){.hero-grid{grid-template-columns:1fr}}
+.hero-text{display:grid;gap:28px;min-width:0}
+.hero-row{display:grid;grid-template-columns:1fr;gap:24px}
+.portrait{position:relative;max-width:440px;margin-inline:auto;width:100%}
+.portrait img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow)}
+.portrait::after{content:"";position:absolute;inset:auto -14px -14px auto;width:60%;height:60%;border-radius:22px;border:1px solid var(--accent);opacity:.5;z-index:-1}
+.portrait .tag{position:absolute;left:16px;bottom:16px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg)}
+.portrait .tag b{display:block;font-family:var(--display);font-size:16px;letter-spacing:0;text-transform:none;font-weight:700}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:999px;text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;font-family:var(--body);transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--accent);color:var(--ink-on-accent);border-color:var(--accent)}
+.live{border:1px solid var(--line);background:var(--surface);border-radius:16px;padding:18px 20px;display:grid;gap:10px;box-shadow:var(--shadow)}
+.live .eyebrow{display:flex;align-items:center;gap:8px}
+.live .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 var(--accent);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent)}100%{box-shadow:0 0 0 12px transparent}}
+.live strong{font-family:var(--display);font-size:26px;font-weight:700;letter-spacing:-.02em}
+.live a{color:var(--accent)}
+.live small{color:var(--muted);font-size:14px}
+
+/* marquee */
+.ticker{border-block:1px solid var(--line);overflow:hidden;background:var(--surface)}
+.ticker-track{display:flex;gap:0;width:max-content;animation:scroll 42s linear infinite}
+.ticker span{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:12px 28px;white-space:nowrap;color:var(--muted);border-right:1px solid var(--line)}
+.ticker span i{font-style:normal;color:var(--accent);margin-right:14px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker-track{animation:none;flex-wrap:wrap;width:auto}.live .dot{animation:none}.btn:hover{transform:none}.card:hover{transform:none}}
+
+/* sections */
+section{padding-block:clamp(56px,8vw,104px)}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:20px 40px;align-items:end;margin-bottom:40px}
+.sec-head h2{font-size:clamp(36px,5.5vw,64px);letter-spacing:-.025em}
+.sec-head p{max-width:48ch;color:var(--muted);align-self:end}
+@media (max-width:720px){.sec-head{grid-template-columns:1fr}}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px}
+@media (max-width:800px){.about-grid{grid-template-columns:1fr}}
+.about-grid .copy{display:grid;gap:18px;font-size:clamp(18px,1.6vw,20px);max-width:62ch}
+.facts{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.facts li{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);min-width:0}
+.facts .k{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);padding-top:3px}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+@media (max-width:960px){.skills{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.skills{grid-template-columns:1fr}}
+.skill{background:var(--bg);padding:24px;display:grid;gap:14px;align-content:start;min-width:0}
+.skill h3{font-size:22px;letter-spacing:-.02em;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:13px;padding:6px 10px;border-radius:8px;background:var(--surface);border:1px solid var(--line)}
+.chip.hot{background:var(--raised);color:var(--fg);border-color:var(--raised)}
+.skill p{color:var(--muted);font-size:14.5px}
+
+/* projects */
+.projects{display:grid;gap:18px}
+.card{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:0;border:1px solid var(--line);border-radius:20px;overflow:hidden;
+  background:var(--surface);transition:transform .2s ease,border-color .2s ease;min-width:0;
+}
+.card:hover{transform:translateY(-3px);border-color:var(--accent)}
+@media (max-width:860px){.card{grid-template-columns:1fr}}
+.card-body{padding:clamp(22px,3vw,36px);display:grid;gap:16px;align-content:start;min-width:0}
+.card-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.status{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.status.live{background:var(--accent);color:var(--ink-on-accent);border-color:var(--accent)}
+.card h3{font-size:clamp(26px,3vw,38px);letter-spacing:-.02em}
+.card h3 small{display:block;font-family:var(--body);font-weight:500;font-size:15px;color:var(--muted);letter-spacing:0;margin-top:8px;font-variation-settings:normal}
+.card p{color:var(--muted);max-width:58ch}
+.card .chips{margin-top:4px}
+.card-links{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;font-weight:600;margin-top:6px}
+.card-links a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+.card-links a:hover{border-bottom-color:var(--accent)}
+.plate{
+  background:var(--bg);border-left:1px solid var(--line);padding:clamp(22px,3vw,32px);
+  display:grid;grid-template-rows:auto 1fr auto;gap:18px;min-width:0;
+  background-image:radial-gradient(color-mix(in srgb,var(--line) 70%,transparent) 1px,transparent 1px);background-size:14px 14px;
+}
+@media (max-width:860px){.plate{border-left:0;border-top:1px solid var(--line)}}
+.plate .eyebrow{color:var(--muted)}
+.figs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-content:center}
+.fig{display:grid;gap:4px;min-width:0}
+.fig b{font-family:var(--display);font-size:clamp(28px,3.2vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums;color:var(--fg)}
+/* screenshot variant of the right-hand panel */
+.shot{position:relative;background:var(--bg);border-left:1px solid var(--line);min-width:0;display:grid;grid-template-rows:1fr auto}
+@media (max-width:860px){.shot{border-left:0;border-top:1px solid var(--line)}}
+.shot .img{padding:clamp(18px,2.4vw,28px) clamp(18px,2.4vw,28px) 0;display:flex;align-items:flex-end;overflow:hidden}
+.shot img{display:block;width:100%;height:auto;border-radius:12px 12px 0 0;border:1px solid var(--line);border-bottom:0;box-shadow:var(--shadow)}
+.shot .figs{grid-template-columns:repeat(3,1fr);padding:16px clamp(18px,2.4vw,28px) clamp(18px,2.4vw,28px);border-top:1px solid var(--line);background:var(--surface)}
+.shot .figs .fig b{font-size:clamp(22px,2.4vw,30px)}
+.shot .cap{position:absolute;top:12px;right:12px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:5px 9px;border-radius:999px;background:color-mix(in srgb,var(--bg) 85%,transparent);border:1px solid var(--line);color:var(--muted)}
+.fig b em{font-style:normal;font-size:.5em;color:var(--accent);font-weight:600;margin-left:2px}
+.fig span{font-size:12.5px;color:var(--muted);line-height:1.3}
+.spec{font-family:var(--mono);font-size:12.5px;line-height:1.7;color:var(--muted);margin:0;white-space:pre-wrap;word-break:break-word;border-top:1px dashed var(--line);padding-top:12px}
+.spec i{font-style:normal;color:var(--accent)}
+
+/* experience */
+.xp-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media (max-width:800px){.xp-grid{grid-template-columns:1fr}}
+.xp h3{font-size:22px;letter-spacing:-.02em;font-weight:700;margin-bottom:18px}
+.tl{list-style:none;margin:0;padding:0;border-left:2px solid var(--line);display:grid;gap:4px}
+.tl li{position:relative;padding:10px 0 18px 24px;display:grid;gap:4px;min-width:0}
+.tl li::before{content:"";position:absolute;left:-7px;top:19px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.tl .when{font-family:var(--mono);font-size:12.5px;color:var(--accent);letter-spacing:.06em}
+.tl .what{font-weight:600;font-size:18px}
+.tl .where{color:var(--muted);font-size:15px}
+
+/* contact */
+.contact{background:var(--surface);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+@media (max-width:800px){.contact-grid{grid-template-columns:1fr}}
+.contact h2{font-size:clamp(36px,6vw,80px);letter-spacing:-.025em;line-height:1}
+.contact h2 span{color:var(--accent)}
+.rows{display:grid;gap:12px}
+.row{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:14px 16px;min-width:0}
+.row .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.row .v{font-size:clamp(16px,2vw,20px);font-weight:600;word-break:break-all;user-select:all;text-decoration:none}
+.copy-btn{font-family:var(--mono);font-size:12px;padding:9px 12px;border-radius:9px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;min-width:78px}
+.copy-btn:hover{border-color:var(--accent)}
+.copy-btn.done{background:var(--accent);color:var(--ink-on-accent);border-color:var(--accent)}
+.footer{padding-block:28px;border-top:1px solid var(--line)}
+.footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+</style>
+
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="mark" href="#top"><b>CP</b>Carlos Pabillore</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Stack</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a class="cta" href="#contact">Hire me</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">Web &amp; app developer · Cagayan de Oro, Philippines</p>
+        <h1>
+          <span>Carlos</span>
+          <span>Pabillore</span>
+          <span class="thin">I build the software that runs a real business.</span>
+        </h1>
+        <div class="hero-row">
+          <div>
+            <p class="lede">Member platforms, payroll, loyalty cards and point-of-sale for MugTuon Learning Hub &amp; Cafe, plus Shopify theme work for brands. Tested, audited, and shipped to cheap shared hosting so it keeps working on a busy day at the counter.</p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#work">See the work</a>
+              <a class="btn" href="#contact">Get in touch</a>
+            </div>
+          </div>
+          <div class="live">
+            <p class="eyebrow"><span class="dot"></span>Live in production</p>
+            <strong><a href="https://mugtuon.com" target="_blank" rel="noopener">mugtuon.com</a></strong>
+            <small>Study-café member platform. Bookings, GCash payments, QR check-in and a 12-section admin console, live since June 2026.</small>
+          </div>
+        </div>
+      </div>
+      <div class="portrait">
+        <img src="img/carlos.jpg" alt="Carlos Pabillore, seated in a black suit and white tie" width="720" height="960">
+        <div class="tag">Owner &amp; developer<b>MugTuon Learning Hub &amp; Cafe</b></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span><i>01</i>React 18 + TypeScript</span><span><i>02</i>PHP 8 + MySQL</span><span><i>03</i>Kotlin + Jetpack Compose</span><span><i>04</i>SQLite offline-first</span><span><i>05</i>Shopify Liquid</span><span><i>06</i>PayMongo / GCash</span><span><i>07</i>Capacitor Android</span><span><i>08</i>Vitest · JUnit 5</span><span><i>09</i>cPanel deploy pipelines</span><span><i>10</i>Meta Ads analysis</span>
+      <span><i>01</i>React 18 + TypeScript</span><span><i>02</i>PHP 8 + MySQL</span><span><i>03</i>Kotlin + Jetpack Compose</span><span><i>04</i>SQLite offline-first</span><span><i>05</i>Shopify Liquid</span><span><i>06</i>PayMongo / GCash</span><span><i>07</i>Capacitor Android</span><span><i>08</i>Vitest · JUnit 5</span><span><i>09</i>cPanel deploy pipelines</span><span><i>10</i>Meta Ads analysis</span>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>About</h2>
+        <p>Developer, business owner and marketer, usually all in the same week.</p>
+      </div>
+      <div class="about-grid">
+        <div class="copy">
+          <p>I'm Carlos, a developer based in Cagayan de Oro. I own MugTuon Learning Hub &amp; Cafe, a study café in Nazareth, and I write the systems it runs on: the member website, the staff payroll app, the loyalty rewards card and the tablet POS.</p>
+          <p>Because I'm also the one behind the counter, I build for the day things go wrong. That means offline-first apps, payroll logic covered by tests before it touches anyone's pay, two security audits before going live, and deploys that work on ordinary shared hosting.</p>
+          <p>Outside MugTuon I build Shopify themes for brands with NC Marketing, and I read Meta Ads data to decide what to build next.</p>
+        </div>
+        <ul class="facts">
+          <li><span class="k">Based in</span><span>Cagayan de Oro City, Philippines (UTC+8)</span></li>
+          <li><span class="k">Runs</span><span>MugTuon Learning Hub &amp; Cafe, owner and developer</span></li>
+          <li><span class="k">Builds</span><span>Web platforms, Android apps, Shopify themes, PHP back ends</span></li>
+          <li><span class="k">Studying</span><span>BS Nursing, Liceo de Cagayan University</span></li>
+          <li><span class="k">Open to</span><span>Freelance web and app projects, theme builds, PH e-commerce work</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Stack</h2>
+        <p>Everything here has shipped in at least one of the projects below.</p>
+      </div>
+      <div class="skills">
+        <div class="skill">
+          <h3>Front end</h3>
+          <div class="chips"><span class="chip hot">React 18</span><span class="chip hot">TypeScript</span><span class="chip">Vite 5</span><span class="chip">React Router</span><span class="chip">HTML / CSS</span><span class="chip">JavaScript</span><span class="chip">Shopify Liquid</span></div>
+          <p>SPAs with role-based dashboards, design-token CSS, no framework bloat where plain CSS will do.</p>
+        </div>
+        <div class="skill">
+          <h3>Back end &amp; data</h3>
+          <div class="chips"><span class="chip hot">PHP 8</span><span class="chip hot">MySQL</span><span class="chip">SQLite (WAL)</span><span class="chip">REST APIs</span><span class="chip">PDO</span><span class="chip">Forward-only migrations</span><span class="chip">PayMongo</span></div>
+          <p>Schemas, migrations, payment webhooks, mail queues, CSP and auth hardening.</p>
+        </div>
+        <div class="skill">
+          <h3>Mobile</h3>
+          <div class="chips"><span class="chip hot">Kotlin</span><span class="chip hot">Jetpack Compose</span><span class="chip">Material 3</span><span class="chip">Capacitor 7</span><span class="chip">Gradle</span><span class="chip">Firebase</span><span class="chip">ML Kit barcode</span><span class="chip">Bluetooth LE printing</span></div>
+          <p>Native and hybrid Android apps built for tablets at a counter, offline first.</p>
+        </div>
+        <div class="skill">
+          <h3>Practice</h3>
+          <div class="chips"><span class="chip hot">Vitest</span><span class="chip hot">JUnit 5</span><span class="chip">Security audits</span><span class="chip">Git / GitHub</span><span class="chip">cPanel deploys</span><span class="chip">Meta Ads analysis</span><span class="chip">QR / jsQR</span></div>
+          <p>Verify gates before "done": typecheck, build, tests. Runbooks so anyone can deploy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Selected work</h2>
+        <p>Five systems, four of them for one business. The figures on each plate come from the project's own docs.</p>
+      </div>
+      <div class="projects">
+
+        <article class="card">
+          <div class="card-body">
+            <div class="card-top"><span class="status live">Live</span><span class="status">Web platform</span><span class="status">2026</span></div>
+            <h3>MugTuon Platform 3.0<small>Study-café member site, staff dashboard and admin console</small></h3>
+            <p>A ground-up rebuild of the café's website. Members book study spaces, buy plans with GCash through PayMongo, check in with QR codes scanned by staff, and climb a points-and-streaks leaderboard. Staff get a camera check-in and walk-in registration. Admins get 12 sections from members and payments to audit logs and backups.</p>
+            <div class="chips"><span class="chip">React 18</span><span class="chip">TypeScript</span><span class="chip">Vite</span><span class="chip">PHP 8 REST API</span><span class="chip">MySQL</span><span class="chip">PayMongo</span><span class="chip">jsQR</span></div>
+            <div class="card-links"><a href="https://mugtuon.com" target="_blank" rel="noopener">Visit mugtuon.com ↗</a></div>
+          </div>
+          <div class="shot">
+            <span class="cap">mugtuon.com · home</span>
+            <div class="img"><img src="img/mugtuon-platform.jpg" alt="MugTuon home page: 'Where coffee meets coursework', with a productivity streak card" width="1200" height="750" loading="lazy"></div>
+            <div class="figs">
+              <div class="fig"><b>19</b><span>MySQL tables</span></div>
+              <div class="fig"><b>37<em>/37</em></b><span>Vitest suite green</span></div>
+              <div class="fig"><b>2</b><span>security audits, 0 criticals</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <div class="card-top"><span class="status">In build</span><span class="status">Android app</span><span class="status">2026</span></div>
+            <h3>MugTuon HR<small>Native payroll and HR app replacing an Excel workbook</small></h3>
+            <p>Time clock, payroll runs, payslips, cash advances, paid leave and deductions for café staff, with the owner approving every request. The payroll engine is a pure Kotlin module with the BIR semi-monthly withholding table, a ₱2,000 monthly cash-advance cap and a rule that a paid run freezes its logs. Independent reviews caught a money bug; it now has a regression test.</p>
+            <div class="chips"><span class="chip">Kotlin</span><span class="chip">Jetpack Compose</span><span class="chip">Material 3</span><span class="chip">JUnit 5</span><span class="chip">Firebase (planned)</span><span class="chip">PdfDocument</span></div>
+          </div>
+          <div class="shot">
+            <span class="cap">Design screens</span>
+            <div class="img"><img src="img/mugtuon-hr.jpg" alt="Two MugTuon HR phone screens: a September attendance calendar and a semi-monthly payroll report" width="744" height="720" loading="lazy"></div>
+            <div class="figs">
+              <div class="fig"><b>158</b><span>payroll-core tests</span></div>
+              <div class="fig"><b>23</b><span>screens in Compose</span></div>
+              <div class="fig"><b>₱2k</b><span>advance cap, in code</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <div class="card-top"><span class="status">Release candidate</span><span class="status">Web app</span><span class="status">2026</span></div>
+            <h3>MugTuon Loyalty &amp; Booking<small>Website, conference-room booking and a points rewards card</small></h3>
+            <p>A mobile-first site that takes ₱1,000 room deposits through PayMongo, runs a QR loyalty card at the counter with staff PINs, and credits bookings back to Meta ad campaigns through UTM tags. No build step, so it deploys to any shared Apache host. Three full site audits and two code reviews, all findings closed.</p>
+            <div class="chips"><span class="chip">PHP 8.1</span><span class="chip">SQLite WAL</span><span class="chip">Vanilla JS / CSS</span><span class="chip">PayMongo</span><span class="chip">CSP</span><span class="chip">Apache</span></div>
+          </div>
+          <div class="shot">
+            <span class="cap">Admin · Counter</span>
+            <div class="img"><img src="img/mugtuon-loyalty.jpg" alt="Two MugTuon Loyalty phone screens: the admin loyalty overview and the staff counter screen for earning points" width="804" height="720" loading="lazy"></div>
+            <div class="figs">
+              <div class="fig"><b>v13</b><span>schema migrations</span></div>
+              <div class="fig"><b>7</b><span>smoke suites passing</span></div>
+              <div class="fig"><b>320<em>px</em></b><span>no overflow down to</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <div class="card-top"><span class="status">Shipped</span><span class="status">Shopify theme</span><span class="status">2026</span></div>
+            <h3>Little Ms. Matcha<small>"LMM Gallery Tiles" custom Shopify theme, built with NC Marketing</small></h3>
+            <p>A gallery-tile theme for a Philippine matcha supplier selling retail and wholesale. Custom sections cover a matcha comparison table, a wholesale calculator and order form, café inquiries, tier shelves, ritual steps and a story timeline. Every section has its own colour controls so the brand team edits without touching code.</p>
+            <div class="chips"><span class="chip">Shopify Liquid</span><span class="chip">Theme settings schema</span><span class="chip">JSON templates</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+            <div class="card-links"><a href="https://littlemsmatcha.com" target="_blank" rel="noopener">littlemsmatcha.com ↗</a></div>
+          </div>
+          <div class="shot">
+            <span class="cap">littlemsmatcha.com · home, wholesale</span>
+            <div class="img"><img src="img/little-ms-matcha.jpg" alt="Little Ms. Matcha home page hero 'Pure matcha for your menu' and the wholesale 1kg pricing table" width="800" height="936" loading="lazy"></div>
+            <div class="figs">
+              <div class="fig"><b>34</b><span>custom Liquid sections</span></div>
+              <div class="fig"><b>17</b><span>page templates</span></div>
+              <div class="fig"><b>3.10</b><span>theme version shipped</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <div class="card-top"><span class="status live">In production</span><span class="status">Android tablet + Windows</span><span class="status">2026</span></div>
+            <h3>MugTuon POS<small>Offline point of sale running on the café's own tablet</small></h3>
+            <p>Sells drinks and food, bills study desks by the minute through "Hub" sessions, and tracks customers, credit (utang), memberships, inventory with per-recipe ingredient costing, staff attendance with selfie evidence, expenses, salaries and reports. Every record stays on the device in SQLite, so the counter keeps running when the internet does not. Receipts print to a Bluetooth thermal printer; the same React code base also ships as a Windows desktop app through Electron.</p>
+            <div class="chips"><span class="chip">React 18</span><span class="chip">Vite 5</span><span class="chip">Capacitor 7</span><span class="chip">Electron 31</span><span class="chip">SQLite on-device</span><span class="chip">Bluetooth LE</span><span class="chip">ML Kit</span></div>
+          </div>
+          <div class="shot">
+            <span class="cap">Sell screen · sample data</span>
+            <div class="img"><img src="img/mugtuon-pos.jpg" alt="MugTuon POS sell screen: a grid of menu tiles with stock counts and a current sale of four items totalling ₱565" width="1200" height="750" loading="lazy"></div>
+            <div class="figs">
+              <div class="fig"><b>v3.9</b><span>Android build on the tablet</span></div>
+              <div class="fig"><b>0</b><span>servers or cloud services</span></div>
+              <div class="fig"><b>3</b><span>generations: HTML, Android, desktop</span></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Experience</h2>
+        <p>Work and study, most recent first.</p>
+      </div>
+      <div class="xp-grid">
+        <div class="xp">
+          <h3>Work</h3>
+          <ul class="tl">
+            <li><span class="when">2026 · PRESENT</span><span class="what">Owner &amp; developer</span><span class="where">MugTuon Learning Hub &amp; Cafe, Cagayan de Oro. Built and run the member platform (live June 2026), payroll app, loyalty system and POS.</span></li>
+            <li><span class="when">2026</span><span class="what">Shopify theme developer</span><span class="where">NC Marketing. Built the "LMM Gallery Tiles" theme for Little Ms. Matcha, through v3.10.</span></li>
+            <li><span class="when">ONGOING</span><span class="what">Meta Ads analysis</span><span class="where">Campaign reporting and UTM-credited bookings for MugTuon's own advertising.</span></li>
+          </ul>
+        </div>
+        <div class="xp">
+          <h3>Education</h3>
+          <ul class="tl">
+            <li><span class="when">2021 · 2026</span><span class="what">BS in Nursing</span><span class="where">Liceo de Cagayan University</span></li>
+            <li><span class="when">2019 · 2021</span><span class="what">Senior High School</span><span class="where">Lourdes College</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Have a project?<br><span>Let's build it.</span></h2>
+          <p class="lede" style="margin-top:20px">Websites, web apps, Android apps and Shopify themes for Philippine businesses. Reply within a day, Manila time.</p>
+        </div>
+        <div class="rows">
+          <div class="row">
+            <div><div class="k">Email</div><a class="v" href="mailto:carlos.pabillore24@gmail.com" id="email-v">carlos.pabillore24@gmail.com</a></div>
+            <button class="copy-btn" type="button" data-copy="carlos.pabillore24@gmail.com">Copy</button>
+          </div>
+          <div class="row">
+            <div><div class="k">Phone</div><a class="v" href="tel:+639760768475" id="phone-v">0976 076 8475</a></div>
+            <button class="copy-btn" type="button" data-copy="09760768475">Copy</button>
+          </div>
+          <div class="row">
+            <div><div class="k">GitHub</div><a class="v" href="https://github.com/carlospabillore24" target="_blank" rel="noopener" id="gh-v">github.com/carlospabillore24</a></div>
+            <button class="copy-btn" type="button" data-copy="https://github.com/carlospabillore24">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© 2026 Carlos Edayle Pamplona Pabillore</span>
+    <span>Cagayan de Oro City, Philippines</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var text = btn.getAttribute('data-copy');
+    var done = function(){ btn.textContent = 'Copied'; btn.classList.add('done'); setTimeout(function(){ btn.textContent='Copy'; btn.classList.remove('done'); }, 1600); };
+    var fallback = function(){
+      var v = btn.parentElement.querySelector('.v');
+      try { var r = document.createRange(); r.selectNodeContents(v); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); } catch(e){}
+      btn.textContent = 'Select & copy';
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(fallback);
+    } else { fallback(); }
+  });
+});
+</script>
+
+</body>
+</html>
